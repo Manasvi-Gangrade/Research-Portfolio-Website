@@ -6,13 +6,13 @@
 }
 
 :root {
-    --bg-color: #111827; /* Rich dark gray */
-    --main-color: #2563EB; /* Elegant Royal Blue */
+    --bg-color: #1e293b; /* Lighter Slate Navy */
+    --main-color: #3b82f6; /* Brighter, safer Blue */
     --text-color: #1F2937; /* Dark text for pages */
     --second-text-color: #4B5563; /* Lighter text for dates/subtitles */
     --white-color: #ffffff;
-    --cover-color: linear-gradient(135deg, #1E3A8A, #3B82F6);
-    --pages-color: #ffffff; /* Clean white pages */
+    --cover-color: linear-gradient(135deg, #2563eb, #60a5fa); /* Lighter blue cover gradient */
+    --pages-color: #f8fafc; /* Crisp Slate 50 white pages */
     --border: .125rem solid var(--main-color);
     --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
@@ -23,8 +23,9 @@ body {
 }
 
 .wrapper {
-    position: relative; width: 68rem; height: 46rem; padding: 2rem; perspective: 250rem;
+    position: relative; width: 68rem; height: 56rem; padding: 2rem; perspective: 250rem;
     animation: show-animate 1.5s forwards;
+    filter: drop-shadow(0 20px 40px rgba(59,130,246,0.12)); /* Blue aura */
 }
 
 @keyframes show-animate {
@@ -88,19 +89,23 @@ body {
     transition: transform 0.8s cubic-bezier(.645, .045, .355, 1);
 }
 
-.book-page.page-right.turn{ transform: rotateY(-180deg); }
+.book-page.page-right.turn{ transform: rotateY(-180deg); box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
 
 .book-page .page-front, .book-page .page-back {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--pages-color);
-    padding: 2rem; box-shadow: inset 2px 0 10px rgba(0,0,0,0.02);
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--pages-color);
+    background-image: radial-gradient(circle at top right, rgba(59, 130, 246, 0.05), transparent 40%), repeating-linear-gradient(45deg, rgba(0,0,0,0.01) 0px, rgba(0,0,0,0.01) 2px, transparent 2px, transparent 6px);
+    padding: 2.5rem; box-shadow: inset 2px 0 10px rgba(0,0,0,0.04);
+    overflow-y: auto; overflow-x: hidden;
 }
+.book-page .page-front::-webkit-scrollbar, .book-page .page-back::-webkit-scrollbar { width: 5px; }
+.book-page .page-front::-webkit-scrollbar-thumb, .book-page .page-back::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 5px; }
 
 .book-page .page-front { transform: rotateY(0deg) translateZ(1px); }
 .book-page .page-back { transform: rotateY(180deg) translateZ(1px); }
 
 .title { text-align: center; margin-bottom: 1.5rem; font-size: 1.6rem; font-weight: 600; color: #111827; }
 
-.workeduc-box { border-left: .15rem solid #E5E7EB; margin-left: 0.5rem; }
+.workeduc-box { border-left: .15rem solid #e2e8f0; margin-left: 0.5rem; }
 .workeduc-box .workeduc-content { position: relative; padding-left: 1.5rem; margin-bottom: 1.2rem; }
 .workeduc-box .workeduc-content::before {
     content: ''; position: absolute; top: 0; left: -0.45rem; width: 0.75rem; height: 0.75rem;
@@ -118,7 +123,7 @@ body {
 
 .nextprev-btn {
     position: absolute; bottom: 1rem; right: 1.5rem; width: 2rem; height: 2rem; cursor: pointer;
-    font-size: 2rem; color: #D1D5DB; display: inline-flex; justify-content: center;
+    font-size: 2rem; color: #cbd5e1; display: inline-flex; justify-content: center;
     align-items: center; transition: .3s;
 }
 .nextprev-btn:hover { color: var(--main-color); }
@@ -126,8 +131,8 @@ body {
 
 .services-box { display: flex; flex-wrap: wrap; gap: 1rem; }
 .services-box .services-content {
-    flex: 1 1 10rem; border: 1px solid #E5E7EB; border-radius: .5rem; padding: 1rem .8rem;
-    text-align: center; transition: .3s ease; background: #F9FAFB;
+    flex: 1 1 10rem; border: 1px solid #e2e8f0; border-radius: .5rem; padding: 1rem .8rem;
+    text-align: center; transition: .3s ease; background: #f8fafc;
 }
 .services-box .services-content:hover { box-shadow: var(--box-shadow); transform: translateY(-3px); border-color: var(--main-color); }
 .services-content i { font-size: 2.2rem; color: var(--main-color); margin-bottom: 0.5rem;}
@@ -140,10 +145,10 @@ body {
 .skills-content .content { display: flex; flex-wrap: wrap; gap: 0.6rem; }
 .skills-content .content span {
     display: inline-flex; align-items: center; padding: 0.4rem 0.8rem;
-    border: 1px solid #E5E7EB; border-radius: 2rem; font-weight: 500; font-size: 0.85rem;
-    color: var(--second-text-color); background: #F9FAFB; transition: .3s;
+    border: 1px solid #e2e8f0; border-radius: 2rem; font-weight: 500; font-size: 0.85rem;
+    color: var(--second-text-color); background: #f8fafc; transition: .3s;
 }
-.skills-content .content span:hover { border-color: var(--main-color); color: var(--main-color); box-shadow: var(--box-shadow); }
+.skills-content .content span:hover { border-color: var(--main-color); color: var(--main-color); box-shadow: var(--box-shadow); background: #fff; }
 .skills-content .content span i { font-size: 1.2rem; margin-right: 0.4rem; color: var(--main-color); }
 
 .portfolio-box .img-box {
@@ -164,100 +169,105 @@ body {
 
 .contact-box { text-align: center; }
 .contact-box .field {
-    width: 100%; background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: .4rem;
+    width: 100%; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: .4rem;
     padding: 0.8rem 1rem; font-size: 0.95rem; color: var(--text-color); margin-bottom: 1.2rem; transition: .3s;
 }
-.contact-box .field:focus { border-color: var(--main-color); background: #fff; }
+.contact-box .field:focus { border-color: var(--main-color); background: #fff; box-shadow: 0 0 10px rgba(59,130,246,0.1); }
 .contact-box textarea { resize: none; height: 10rem; }
 .contact-box .btn { cursor: pointer; width: 100%; margin: 0; }
 
 .back-profile {
     position: absolute; bottom: 1.2rem; right: 2rem; width: 2.5rem; height: 2.5rem;
-    border: 1px solid #E5E7EB; border-radius: 50%; font-size: 1.2rem;
+    border: 1px solid #e2e8f0; border-radius: 50%; font-size: 1.2rem;
     color: #9CA3AF; display: inline-flex; justify-content: center; align-items: center; transition: .3s; background: #fff;
 }
-.back-profile:hover { border-color: var(--main-color); color: var(--main-color); }
+.back-profile:hover { border-color: var(--main-color); color: var(--white-color); background: var(--main-color); }
 
 /* ============================================================== */
-/* Responsive Mobile & Tablet Layout (Stacked Card Layout)       */
+/* True Responsive Dimensions For Detailed Gallery Layout        */
 /* ============================================================== */
+
+/* Base Elaborated Gallery UI (Desktop) */
+.video-box { width: 100%; height: 14rem; background: #f1f5f9; border: 1px dashed #cbd5e1; border-radius: .6rem; display: flex; justify-content: center; align-items: center; font-size: 4rem; color: #9ca3af; margin-bottom: 0.8rem; transition: .3s; cursor: pointer; }
+.video-box:hover { border-color: var(--main-color); color: var(--main-color); background: #f8fafc; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(59,130,246,0.15); }
+.elaborate-text { text-align: justify; font-size: 0.95rem; line-height: 1.6; color: var(--second-text-color); margin-top: 1.2rem; }
+.elaborate-text ul { padding-left: 1.5rem; margin-top: 0.5rem; }
+.elaborate-text ul li { margin-bottom: 0.4rem; }
+
+/* Media Row Styles */
+.media-row { display: flex; gap: 0.8rem; margin-top: 0.8rem; overflow-x: auto; padding-bottom: 0.5rem; }
+.media-row::-webkit-scrollbar { height: 4px; }
+.media-row::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+.media-box { flex: 0 0 31.5%; height: 6.5rem; background: #f1f5f9; border-radius: 0.5rem; border: 1px dashed #cbd5e1; display: flex; justify-content: center; align-items: center; color: #9ca3af; font-size: 2rem; overflow: hidden; position: relative; transition: .3s; cursor: pointer; }
+.media-box img, .media-box video { width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem; }
+.media-box:hover { border-color: var(--main-color); color: var(--main-color); background: #f8fafc; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(59,130,246,0.1); }
+
+
+/* Absolute Pixel-Perfect Zoom Resolving Squashing Glitches */
+@media (max-width: 1200px) {
+    html { zoom: 0.8; font-size: 16px; } 
+    .wrapper { height: 56rem; }
+}
 @media (max-width: 991px) {
-    body {
-        align-items: flex-start;
-        padding: 2rem 1rem;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-
-    .wrapper {
-        width: 100%; height: auto; padding: 0;
-        animation: none;
-        perspective: none;
-    }
-
-    .cover { display: none; }
-
-    .book {
-        flex-direction: column;
-        gap: 0;
-        perspective: none;
-        height: auto;
-    }
-
-    .book .book-page {
-        position: relative;
-        width: 100%; height: auto;
-        padding: 0; box-shadow: none !important;
-    }
-
-    .book-page.page-left {
-        background: var(--pages-color); box-shadow: 0 4px 10px rgba(0,0,0,0.06) !important;
-        border-radius: 1rem; padding: 2.5rem 1.5rem; margin-bottom: 1.5rem; border: 1px solid #E5E7EB;
-    }
-
-    .book-page.page-right {
-        position: relative !important; right: auto !important; transform: none !important;
-        transition: none !important; transform-style: flat;
-    }
-
-    .book-page.page-right.turn {
-        transform: none !important; /* Nullify JS animation on mobile */
-    }
-
-    .book-page .page-front, .book-page .page-back {
-        position: relative !important; width: 100% !important; height: auto !important;
-        transform: none !important; padding: 2.5rem 1.5rem; border-radius: 1rem;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.06); margin-bottom: 1.5rem; border: 1px solid #E5E7EB;
-        display: block !important;
-    }
-
-    .title { font-size: 1.5rem; margin-bottom: 1.5rem; }
-
-    .nextprev-btn, .number-page { display: none; }
+    html { zoom: 0.65; font-size: 16px; } 
+    .wrapper { height: 70rem; }
+}
+@media (max-width: 768px) {
+    html { zoom: 0.5; font-size: 16px; } 
+    .wrapper { height: 90rem; }
     
-    .back-profile {
-        position: relative; bottom: auto; right: auto; margin-top: 2rem; width: 100%;
-        border-radius: .4rem; display: flex; gap: 0.5rem; background: var(--main-color); color: #fff; border: navajowhite;
-    }
-    .back-profile i { color: #fff; }
-    .back-profile:after { content: 'Back to Profile'; font-size: 1rem; font-weight: 500;}
-    .back-profile p { display: none; }
+    .profile-page h1 { font-size: 3.5rem; } 
+    .profile-page h3 { font-size: 2rem; }
+    .profile-page p { font-size: 1.3rem; line-height: 1.7; }
+    .btn { height: 4rem; width: 13rem; font-size: 1.3rem; }
+    
+    .title { font-size: 2.5rem; margin-bottom: 2rem; }
+    .workeduc-content h3 { font-size: 1.6rem; }
+    .workeduc-content .year { font-size: 1.2rem; }
+    .elaborate-text { font-size: 1.3rem; }
+    
+    .media-box { height: 10rem; font-size: 2.5rem; }
+    .video-box { height: 20rem; font-size: 5rem; }
+    .nextprev-btn { width: 4rem; height: 4rem; font-size: 3.5rem; right: 2.5rem; bottom: 2rem; }
+    .nextprev-btn.back { left: 2.5rem; }
+}
 
-    .profile-page h1 { font-size: 2rem; text-align: center; }
-    .profile-page h3 { font-size: 1.1rem; text-align: center; margin-bottom: 0.4rem; }
-    .profile-page p { text-align: left; }
-    .btn-box { display: flex; flex-direction: column; gap: 1rem; width: 100%; }
-    .btn { width: 100%; margin: 0; height: 3.2rem; }
+@media (max-width: 450px) {
+    /* 'Zoom' mathematically shrinks the physical pixel width scaling the 68rem wrapper natively 
+       to bypass iOS font-size floors, while expanding height eliminates all inline text clipping! */
+    html { zoom: 0.35; font-size: 16px; } 
+    .wrapper { height: 155rem; padding: 1rem; } 
     
-    .portfolio-box .img-box { height: auto; aspect-ratio: 16/9; }
-    .portfolio-box .btn-box { flex-direction: column; gap: 0.8rem; }
-    .portfolio-box .btn-box .btn { width: 100%; margin: 0; }
+    /* Extreme readability bounds keeping font sizes large within the zoomed canvas */
+    .profile-page h1 { font-size: 4.5rem; } 
+    .profile-page h3 { font-size: 2.5rem; }
+    .profile-page p { font-size: 2.2rem; line-height: 1.6; }
+    .btn { height: 6rem; width: 19rem; font-size: 1.9rem; border-radius: .8rem; }
+    .social-media a { width: 6rem; height: 6rem; font-size: 3rem; margin: 0 0.5rem; }
     
-    .workeduc-box { margin-left: 0; border-left: none; }
-    .workeduc-box .workeduc-content {
-        padding-left: 0; border: 1px solid #E5E7EB; padding: 1.2rem;
-        border-radius: .6rem; background: #F9FAFB; margin-bottom: 1.2rem;
-    }
-    .workeduc-box .workeduc-content::before { display: none; }
-    .workeduc-content h3 { font-size: 1.1rem; }
+    .title { font-size: 4.5rem; margin-bottom: 3.5rem; }
+    .workeduc-box { border-left-width: .4rem; }
+    .workeduc-content h3 { font-size: 2.8rem; margin-bottom: 1rem; }
+    .workeduc-content .year { font-size: 2rem; margin-bottom: 1rem; }
+    
+    .video-box { height: 32rem; font-size: 10rem; border-radius: 1.5rem; margin-bottom: 1.5rem; }
+    .media-row { gap: 2rem; margin-top: 2rem; padding-bottom: 2rem; }
+    .media-box { height: 16rem; border-radius: 1.5rem; font-size: 5rem; }
+    
+    .elaborate-text { font-size: 2.2rem; line-height: 1.6; margin-top: 2.5rem;}
+    .elaborate-text ul { padding-left: 3.5rem; }
+    .elaborate-text ul li { margin-bottom: 1.5rem; }
+    
+    .nextprev-btn { width: 8rem; height: 8rem; font-size: 6.5rem; bottom: 5rem; right: 5rem; }
+    .nextprev-btn.back { left: 5rem; }
+    .number-page { font-size: 3rem; bottom: 5.5rem; }
+    .back-profile { width: 8rem; height: 8rem; font-size: 4rem; bottom: 5rem; }
+
+    .skills-content h3 { font-size: 3rem; }
+    .skills-content .content span { font-size: 2.2rem; padding: 1.5rem 2.8rem; border-radius: 4rem;}
+    .skills-content .content span i { font-size: 3rem; }
+
+    .contact-box { margin-top: 6rem; }
+    .contact-box .field { padding: 3rem; font-size: 2.2rem; border-radius: 1.5rem; margin-bottom: 3rem; }
+    .contact-box textarea { height: 45rem; }
 }
